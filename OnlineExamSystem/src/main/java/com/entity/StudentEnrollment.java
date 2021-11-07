@@ -48,7 +48,7 @@ public class StudentEnrollment implements Serializable
 		this.course = course;
 	}
 	
-	@OneToMany(targetEntity = Exam.class, cascade = CascadeType.ALL)
+	@OneToMany(targetEntity = Exam.class)
 	@JoinColumn(name = "enrollmentId", referencedColumnName = "enrollmentId")
 	private List<Exam> exam = new ArrayList<>();
 	
