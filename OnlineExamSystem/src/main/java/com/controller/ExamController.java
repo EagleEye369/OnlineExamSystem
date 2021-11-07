@@ -56,10 +56,10 @@ public class ExamController
 		return re;
 	}
 	
-	@GetMapping("/searchResults/{courseName}/{studentid}")
-	public ResponseEntity<List<Exam>> getResultsByCourseName(@PathVariable String courseName, @PathVariable int studentid) throws Throwable
+	@GetMapping("/searchResults/{courseName}/{enrollmentId}")
+	public ResponseEntity<List<Exam>> getResultsByCourseName(@PathVariable String courseName, @PathVariable int enrollmentId) throws Throwable
 	{
-		ResponseEntity re =  new ResponseEntity(studentexamservice.searchResultsByCourseName(courseName, studentid), HttpStatus.OK);
+		ResponseEntity re =  new ResponseEntity(studentexamservice.searchResultsByCourseName(courseName, enrollmentId), HttpStatus.OK);
 		return re;
 	}
 	
