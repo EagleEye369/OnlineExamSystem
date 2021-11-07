@@ -105,9 +105,9 @@ public class AdminController {
 		return re;
 	}
 
-	@GetMapping(path = "scheduleExamForStudent/{sid}/{eid}/{tpc}/{ldt}/{examduration}")
-	public ResponseEntity<Exam> scheduleExamforStudent(@PathVariable int sid, @PathVariable int eid,
-			@PathVariable int tpc, @PathVariable("ldt") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date,
+	@GetMapping(path = "scheduleExamForStudent/{studentId}/{enrollmentId}/{testPaperCode}/{localDateTime}/{examduration}")
+	public ResponseEntity<Exam> scheduleExamforStudent(@PathVariable int studentId, @PathVariable int enrollmentId,
+			@PathVariable int testPaperCode, @PathVariable("localDateTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime date,
 			@PathVariable int examduration) throws Throwable 
 	{
 		ResponseEntity<Exam> re = new ResponseEntity<Exam>(adminExamManagementService.scheduleExamForStudent(sid, eid, tpc, date, examduration), HttpStatus.OK);
