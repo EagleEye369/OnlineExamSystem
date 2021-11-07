@@ -120,6 +120,7 @@ public class StudentExam implements StudentExamService {
 					Instant instant = Instant.now();
 					se.setCompletionDate(Date.from(instant));
 					se.setStatus(true);
+					ex.setStatus(true);
 					studentEnrollmentRepository.save(se);
 					break;
 				}
