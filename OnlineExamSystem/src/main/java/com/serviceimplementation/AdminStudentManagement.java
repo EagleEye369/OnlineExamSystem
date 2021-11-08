@@ -72,10 +72,10 @@ public class AdminStudentManagement implements AdminStudentManagementService {
 		if (adminAuthenticationImpl.isLogin) {
 			Student s1 = studentRepository.findById(student_id)
 					.orElseThrow(() -> new DataNotFoundedException("student Id not found in database"));
-			Course c1 = courseRepository.findById(course_id).orElseThrow();
+			Course c1 = courseRepository.findById(course_id).orElseThrow(() -> new DataNotFoundedException("course Id not found in database"));
 
 			StudentEnrollment studentEnrollment = studentEnrollmentRepository.findById(enroll_id)
-					.orElseThrow(() -> new DataNotFoundedException("course Id not found in database"));
+					.orElseThrow(() -> new DataNotFoundedException("enrollment Id not found in database"));
 			if (studentEnrollment.getBatchName().equals(batch_Name)) {
 				s1.removeStudentEnrollment(studentEnrollment);
 			}
